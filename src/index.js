@@ -3,11 +3,29 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import {ThemeProvider, createTheme} from '@mui/material';
+import {BrowserRouter} from 'react-router-dom';
+
+const theme = createTheme({
+  typography: {
+    fontFamily: ['"Death Star"', 'sans-serif'].join(',')
+   },
+   palette:{
+     primary: {
+      main: '#fff'
+    },
+    secondary: {
+      main: '#000000'
+    }
+   }
+})
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <ThemeProvider theme={theme}>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>,
+  </ThemeProvider>,
   document.getElementById('root')
 );
 
